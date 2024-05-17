@@ -311,7 +311,7 @@ Le dossier "view" contiendra l'ensemble des vues du projet
 - Nativement, un fichier "home.php" a été crée pour une base de page d'accueil
 
 ``` html 
-<h1>BIENVENUE SUR LE FORUM</h1>
+<h2>BIENVENUE SUR LE FORUM</h2>
 
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ut nemo quia voluptas numquam, itaque ipsa soluta ratione eum temporibus aliquid, facere rerum in laborum debitis labore aliquam ullam cumque.</p>
 
@@ -343,7 +343,7 @@ return [
 
 // on initialise une variable permettant de récupérer ce que nous renvoie le controller à l'index "categories" du tableau de "data"
 $categories = $result["data"]['categories']; 
-<h1>Liste des catégories</h1>
+<h2>Liste des catégories</h2>
 
 foreach($categories as $category ){ ?>
     <p><a href="index.php?ctrl=forum&action=listTopicsByCategory&id=<?= $category->getId() ?>"><?= $category->getName() ?></a></p>

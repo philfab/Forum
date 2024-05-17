@@ -12,6 +12,8 @@ INSERT INTO User (userName, password, registrationDate, email, roles, status)
 VALUES ('$username', '$hashedPassword', NOW(), '$email', '$roles', '$status');
 ";
 
+echo $hashedPassword . '<br>';
+
 echo $sql . '<br>';
 
 //mots de passe cryptés pour les users fictifs

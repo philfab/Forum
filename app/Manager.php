@@ -49,6 +49,7 @@ abstract class Manager
 
     //$data = ['username' => 'Squalli', 'password' => 'dfsyfshfbzeifbqefbq', 'email' => 'sql@gmail.com'];
 
+    //ne pas poster sur un topic verouillé doit être vérifié dans le controller et pas ici
     public function add($data)
     {
         //$keys = ['username' , 'password', 'email']

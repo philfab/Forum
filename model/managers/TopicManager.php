@@ -21,13 +21,21 @@ class TopicManager extends Manager
     public function findTopicsByCategory($id)
     {
         $sql = "SELECT * 
-                FROM " . $this->tableName . " t 
-                WHERE t.category_id = :id";
+        FROM " . $this->tableName . " t 
+        WHERE t.category_id = :id
+        ORDER BY t.creationDate DESC";
 
         // la requête renvoie plusieurs enregistrements --> getMultipleResults
         return  $this->getMultipleResults(
             DAO::select($sql, ['id' => $id]),
             $this->className
         );
+    }
+
+    // verrouiller un topic (admin uniquement)
+    public function updateLockStatus($id, $isLocked)
+    {
+        $sql = "UPDATE " . $this->tableName . " SET isLocked = :isLocked WHERE id_topic = :id";
+        return DAO::update($sql, ['id' => $id, 'isLocked' => $isLocked]);
     }
 }

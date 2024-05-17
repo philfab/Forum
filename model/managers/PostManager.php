@@ -19,7 +19,8 @@ class PostManager extends Manager
     {
         $sql = "SELECT * 
                 FROM " . $this->tableName . " p 
-                WHERE p.topic_id = :id";
+                WHERE p.topic_id = :id
+                ORDER BY p.publishDate ASC";
         // la requête renvoie plusieurs enregistrements --> getMultipleResults
         return  $this->getMultipleResults(
             DAO::select($sql, ['id' => $id]),

@@ -1,8 +1,7 @@
-<h1>BIENVENUE SUR LE FORUM</h1>
-
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ut nemo quia voluptas numquam, itaque ipsa soluta ratione eum temporibus aliquid, facere rerum in laborum debitis labore aliquam ullam cumque.</p>
-
-<p>
-    <a href="index.php?ctrl=security&action=login">Se connecter</a>
-    <a href="index.php?ctrl=security&action=register">S'inscrire</a>
-</p>
+<section class="sectionContent">
+    <h2>Welcome to the Forum</h2>
+    <div class="container-row">
+        <a href="index.php?ctrl=security&action=login">Login</a>
+        <a href="index.php?ctrl=security&action=register">Register</a>
+    </div>
+</section>

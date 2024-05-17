@@ -6,107 +6,81 @@ use App\Entity;
 
 final class Post extends Entity
 {
-
     private $id;
     private $text;
     private $publishDate;
-    private $user;
+    private $status;
     private $topic;
+    private $user;
 
     public function __construct($data)
     {
         $this->hydrate($data);
     }
 
-
-
-    /**
-     * Get the value of id
-     */
     public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * Set the value of id
-     */
-    public function setId($id): self
+    public function setId($id)
     {
         $this->id = $id;
-
         return $this;
     }
 
-    /**
-     * Get the value of text
-     */
     public function getText()
     {
         return $this->text;
     }
 
-    /**
-     * Set the value of text
-     */
-    public function setText($text): self
+    public function setText($text)
     {
         $this->text = $text;
-
         return $this;
     }
 
-    /**
-     * Get the value of publishDate
-     */
     public function getPublishDate()
     {
         return $this->publishDate;
     }
 
-    /**
-     * Set the value of publishDate
-     */
-    public function setPublishDate($publishDate): self
+    public function setPublishDate($publishDate)
     {
         $this->publishDate = $publishDate;
-
         return $this;
     }
 
-    /**
-     * Get the value of user
-     */
-    public function getUser()
+    public function getStatus()
     {
-        return $this->user;
+        return $this->status;
     }
 
-    /**
-     * Set the value of user
-     */
-    public function setUser($user): self
+    public function setStatus($status)
     {
-        $this->user = $user;
-
+        $this->status = $status;
         return $this;
     }
 
-    /**
-     * Get the value of category
-     */
     public function getTopic()
     {
         return $this->topic;
     }
 
-    /**
-     * Set the value of category
-     */
-    public function setCategory($topic): self
+    public function setTopic($topic)
     {
         $this->topic = $topic;
+        return $this;
+    }
 
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    public function setUser($user)
+    {
+        $this->user = $user;
         return $this;
     }
 
