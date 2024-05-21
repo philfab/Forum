@@ -46,7 +46,13 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 } else $id = null;
 //ex : HomeController->users(null)
-$result = $ctrl->$action($id);
+
+if (isset($_GET['category']))
+    $category = $_GET['category'];
+else $category = null;
+
+
+$result = $ctrl->$action($id, $category);
 
 /*--------CHARGEMENT PAGE--------*/
 if ($action == "ajax") { //si l'action était ajax

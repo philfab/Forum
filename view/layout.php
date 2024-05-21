@@ -15,22 +15,33 @@
 
 <body>
     <div id="wrapper">
+
         <header>
+            <!-- c'est ici que les messages (erreur ou succès) s'affichent-->
+            <h3 class="message" style="color: red"><?= App\Session::getFlash("error") ?></h3>
+            <h3 class="message" style="color: green"><?= App\Session::getFlash("success") ?></h3>
             <nav>
                 <h1>FORUM</h1>
                 <div id="nav-left">
                     <a href="/">Home</a>
-                    <a href="index.php?ctrl=security&action=login">Login</a>
-                    <a href="index.php?ctrl=security&action=register">Register</a>
-                    <a href="index.php?ctrl=forum&action=topics">Topics List</a>
-                    <a href="index.php?ctrl=forum&action=index">Category List</a>
+                    <?php
+                    if (!App\Session::getUser()) {
+                    ?>
+                        <a href="index.php?ctrl=security&action=login">Login</a>
+                        <a href="index.php?ctrl=security&action=register">Register</a>
+                    <?php
+                    }
+                    ?>
+                    <a href="index.php?ctrl=forum&action=topics">Topics</a>
+                    <a href="index.php?ctrl=forum&action=index">Categories</a>
                 </div>
                 <div id="nav-right">
                     <?php
                     // si l'utilisateur est connecté 
                     if (App\Session::getUser()) {
                     ?>
-                        <a href="index.php?ctrl=security&action=profile"><span class="fas fa-user"></span>&nbsp;<?= App\Session::getUser() ?></a>
+                        <!-- <a href="index.php?ctrl=security&action=profile"><span class="fas fa-user"></span>&nbsp;<?= App\Session::getUser() ?></a> -->
+                        <a href="#"></span>&nbsp;<?= App\Session::getUser() ?></a>
                         <a href="index.php?ctrl=security&action=logout">Logout</a>
                     <?php
                     }

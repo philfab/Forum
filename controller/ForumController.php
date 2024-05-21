@@ -79,7 +79,7 @@ class ForumController extends AbstractController implements ControllerInterface
     }
 
     // on vérifie si l'user est admin , si oui on appelle lockTopic
-    public function lockTopic($id)
+    public function lockTopic($id, $category)
     {
         // vérification si l'user est admin
         if (Session::isAdmin()) {
@@ -90,7 +90,7 @@ class ForumController extends AbstractController implements ControllerInterface
                 $isLocked = $topic->getIsLocked() ? 0 : 1;
                 $topicManager->updateLockStatus($id, $isLocked);
                 // redirection après verrouillage du topic
-                $this->redirectTo("forum", "listTopicsByCategory", $topic->getCategory()->getId());
+                $this->redirectTo("forum", $category != "" ? "listTopicsByCategory" : "Topics", $topic->getCategory()->getId());
             } else {
                 Session::addFlash("error", "Le sujet n'existe pas.");
                 $this->redirectTo("forum", "index");
